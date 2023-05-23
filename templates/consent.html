@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consent Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Consent Page</h1>
+        <p>Click the "Verify" button to authorize.</p>
+        <form action="/callback" method="post">
+            <input type="hidden" name="client_id" value="{{ client_id }}">
+            <input class="btn" type="submit" value="Verify">
+        </form>
+    </div>
+</body>
+</html>

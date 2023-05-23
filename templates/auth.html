@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authorization Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Authorization Page</h1>
+        <p>Auth Code: {{ authorization_code }}</p>
+        <button id="copyButton" onclick="copyToClipboard()">Copy</button>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            var codeElement = document.querySelector('p');
+            var code = codeElement.textContent;
+
+            navigator.clipboard.writeText(code)
+                .then(function() {
+                    alert("Authorization code copied to clipboard!");
+                })
+                .catch(function(error) {
+                    console.error("Failed to copy authorization code: ", error);
+                });
+        }
+    </script>
+</body>
+</html>
